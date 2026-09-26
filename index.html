@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إبراهيم مروان أبو شمالة | صفحتي الشخصية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        :root {
+            --bg: #070b14;
+            --card: rgba(255,255,255,0.06);
+            --text: #ffffff;
+            --text2: #aeb7c7;
+            --primary: #00d9ff;
+            --secondary: #2575ff;
+            --border: rgba(255,255,255,0.12);
+        }
+        body.light {
+            --bg: #f4f7fb;
+            --card: rgba(255,255,255,0.85);
+            --text: #111827;
+            --text2: #596579;
+            --border: rgba(0,0,0,0.1);
+        }
+        body {
+            font-family: "Cairo", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: 0.4s;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+            filter: blur(180px);
+            opacity: 0.13;
+            top: -150px;
+            right: -150px;
+            z-index: -1;
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: var(--secondary);
+            filter: blur(180px);
+            opacity: 0.12;
+            bottom: -150px;
+            left: -150px;
+            z-index: -1;
+        }
+        /* NAVBAR */
+        nav {
+            width: 100%;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            background: rgba(7,11,20,0.55);
+            border-bottom: 1px solid var(--border);
+        }
+        body.light nav {
+            background: rgba(244,247,251,0.75);
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text);
+        }
+        .logo span {
+            color: var(--primary);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        .theme-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .theme-btn:hover {
+            transform: rotate(20deg) scale(1.08);
+        }
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 7% 70px;
+        }
+        .hero-content {
+            width: 100%;
+            max-width: 1050px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 70px;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .small-title {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid rgba(0,217,255,0.3);
+            background: rgba(0,217,255,0.08);
+            color: var(--primary);
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 70px);
+            line-height: 1.25;
+            font-weight: 800;
+        }
+        .hero h1 span {
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero h2 {
+            margin-top: 10px;
+            color: var(--text2);
+            font-size: 21px;
+            font-weight: 600;
+        }
+        .hero p {
+            color: var(--text2);
+            margin-top: 20px;
+            line-height: 2;
+            max-width: 600px;
+            font-size: 15px;
+        }
+        /* BUTTONS */
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-primary {
+            color: #001018;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                #40a9ff
+            );
+            box-shadow: 0 10px 30px rgba(0,217,255,0.18);
+        }
+        .btn-secondary {
+            color: var(--text);
+            border: 1px solid var(--border);
+            background: var(--card);
+        }
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+        /* IMAGE */
+        .hero-image {
+            width: 320px;
+            height: 320px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            animation: rotate 5s linear infinite;
+            z-index: -1;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 7px solid var(--bg);
+            display: block;
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        /* SECTIONS */
+        section {
+            padding: 90px 7%;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 35px;
+        }
+        .section-title span {
+            color: var(--primary);
+        }
+        .section-title p {
+            color: var(--text2);
+            margin-top: 8px;
+        }
+        /* ABOUT */
+        .about-card {
+            max-width: 900px;
+            margin: auto;
+            padding: 35px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            text-align: center;
+        }
+        .about-card p {
+            color: var(--text2);
+            line-height: 2.2;
+        }
+        /* PERSONAL INFO */
+        .info-box {
+            max-width: 900px;
+            margin: 25px auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+        .info-item {
+            padding: 22px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .info-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+        .info-item .icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .info-item h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .info-item p {
+            color: var(--text2);
+            font-size: 14px;
+        }
+        /* SKILLS */
+        .skills {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .skill {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .skill:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+        .skill .icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+        .skill h3 {
+            font-size: 18px;
+        }
+        .skill p {
+            color: var(--text2);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        /* CONTACT */
+        .contact-box {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+        .contact-item {
+            text-decoration: none;
+            color: var(--text);
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px 12px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .contact-item:hover {
+            transform: translateY(-7px);
+            border-color: var(--primary);
+        }
+        .contact-item .icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        .contact-item h3 {
+            font-size: 16px;
+        }
+        .contact-item p {
+            color: var(--text2);
+            font-size: 12px;
+            margin-top: 5px;
+            direction: ltr;
+        }
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text2);
+            font-size: 13px;
+        }
+        footer span {
+            color: var(--primary);
+        }
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .contact-box {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 800px) {
+            nav {
+                padding: 15px 5%;
+            }
+            nav ul {
+                display: none;
+            }
+            .hero {
+                padding-top: 120px;
+            }
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-image {
+                width: 240px;
+                height: 240px;
+            }
+            .hero p {
+                margin: 20px auto;
+            }
+            .buttons {
+                justify-content: center;
+            }
+            .skills {
+                grid-template-columns: 1fr;
+            }
+            .info-box {
+                grid-template-columns: 1fr;
+            }
+            section {
+                padding: 70px 5%;
+            }
+        }
+        @media (max-width: 500px) {
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 38px;
+            }
+            .hero h2 {
+                font-size: 17px;
+            }
+            .hero-image {
+                width: 200px;
+                height: 200px;
+            }
+            .about-card {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            إبراهيم مروان<span>.</span>
+        </div>
+        <ul>
+            <li>
+                <a href="#home">الرئيسية</a>
+            </li>
+            <li>
+                <a href="#about">عني</a>
+            </li>
+            <li>
+                <a href="#skills">مهاراتي</a>
+            </li>
+            <li>
+                <a href="#contact">تواصل معي</a>
+            </li>
+        </ul>
+        <button
+            class="theme-btn"
+            id="themeBtn"
+            title="تغيير الوضع"
+        >
+            ☀️
+        </button>
+    </nav>
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="small-title">
+                    👋 أهلاً وسهلاً بكم في صفحتي
+                </span>
+                <h1>
+                    مرحباً، أنا
+                    <br>
+                    <span>
+                        إبراهيم مروان أبو شمالة
+                    </span>
+                </h1>
+                <h2>
+                    طالب ذكاء اصطناعي ومطور مواقع
+                </h2>
+                <p>
+                    أهلاً بكم في موقعي الشخصي.
+                    أنا مهتم بتطوير المواقع وتصميم الواجهات
+                    والتقنيات الحديثة والذكاء الاصطناعي،
+                    وأسعى دائماً إلى تطوير مهاراتي وبناء مشاريع
+                    إبداعية وعصرية.
+                </p>
+                <div class="buttons">
+                    <a href="#about" class="btn btn-primary">
+                        تعرف عليّ
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        تواصل معي
+                    </a>
+                </div>
+            </div>
+            <!-- الصورة الشخصية -->
+            <div class="hero-image">
+                <img
+                    src="profile.jpg"
+                    alt="إبراهيم مروان أبو شمالة"
+                >
+            </div>
+        </div>
+    </section>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="section-title">
+            <h2>
+                <span>من أنا؟</span>
+            </h2>
+            <p>
+                نبذة تعريفية عني
+            </p>
+        </div>
+        <div class="about-card">
+            <p>
+                أنا إبراهيم مروان أبو شمالة،
+                طالب مهتم بمجال الذكاء الاصطناعي
+                وتطوير وتصميم المواقع.
+                أحب تعلم التقنيات الحديثة والعمل على
+                مشاريع تساعدني على تطوير مهاراتي في
+                البرمجة والتصميم.
+                أطمح إلى بناء مواقع وتطبيقات عصرية
+                تجمع بين التصميم الجميل والأداء الجيد
+                وسهولة الاستخدام.
+            </p>
+        </div>
+        <div class="info-box">
+            <div class="info-item">
+                <div class="icon">👤</div>
+                <h3>الاسم</h3>
+                <p>
+                    إبراهيم مروان أبو شمالة
+                </p>
+            </div>
+            <div class="info-item">
+                <div class="icon">📍</div>
+                <h3>مكان السكن</h3>
+                <p>
+                    خانيونس
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="section-title">
+            <h2>
+                مهاراتي
+                <span>وتخصصاتي</span>
+            </h2>
+            <p>
+                بعض المجالات التي أهتم بها
+            </p>
+        </div>
+        <div class="skills">
+            <div class="skill">
+                <div class="icon">💻</div>
+                <h3>
+                    تطوير المواقع
+                </h3>
+                <p>
+                    HTML - CSS - JavaScript
+                </p>
+            </div>
+            <div class="skill">
+                <div class="icon">🤖</div>
+                <h3>
+                    الذكاء الاصطناعي
+                </h3>
+                <p>
+                    تعلم واستكشاف تقنيات الذكاء الاصطناعي
+                </p>
+            </div>
+            <div class="skill">
+                <div class="icon">🎨</div>
+                <h3>
+                    تصميم الواجهات
+                </h3>
+                <p>
+                    تصميم واجهات عصرية ومتجاوبة
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>
+                تواصل
+                <span>معي</span>
+            </h2>
+            <p>
+                يمكنك التواصل معي عبر الحسابات التالية
+            </p>
+        </div>
+        <div class="contact-box">
+            <!-- Instagram -->
+            <a
+                class="contact-item"
+                href="https://www.instagram.com/shammalaibrahemabu?stkn=MWVrb2N3aWZkZDI3Ng%3D%3D&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <div class="icon">📸</div>
+                <h3>Instagram</h3>
+                <p>
+                    @shammalaibrahemabu
+                </p>
+            </a>
+            <!-- Facebook -->
+            <a
+                class="contact-item"
+                href="https://www.facebook.com/share/18G5N2WDrt/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <div class="icon">📘</div>
+                <h3>Facebook</h3>
+                <p>
+                    حسابي على Facebook
+                </p>
+            </a>
+            <!-- WhatsApp -->
+            <a
+                class="contact-item"
+                href="https://wa.me/970594465185"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <div class="icon">💬</div>
+                <h3>WhatsApp</h3>
+                <p>
+                    تواصل معي عبر واتساب
+                </p>
+            </a>
+            <!-- Phone -->
+            <a
+                class="contact-item"
+                href="tel:+970594465185"
+            >
+                <div class="icon">📱</div>
+                <h3>رقم الجوال</h3>
+                <p>
+                    0594465185
+                </p>
+            </a>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer>
+        © 2026
+        <span>
+            إبراهيم مروان أبو شمالة
+        </span>
+        — جميع الحقوق محفوظة
+    </footer>
+    <!-- JAVASCRIPT -->
+    <script>
+        const themeBtn =
+            document.getElementById("themeBtn");
+        themeBtn.addEventListener(
+            "click",
+            function () {
+                document.body.classList.toggle("light");
+                if (
+                    document.body.classList.contains("light")
+                ) {
+                    themeBtn.textContent = "🌙";
+                } else {
+                    themeBtn.textContent = "☀️";
+                }
+            }
+        );
+        console.log(
+            "مرحباً بك في الموقع الشخصي لإبراهيم مروان أبو شمالة 🚀"
+        );
+    </script>
+</body>
+</html>
